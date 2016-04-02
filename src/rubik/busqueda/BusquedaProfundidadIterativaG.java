@@ -2,7 +2,7 @@ package rubik.busqueda;
 
 import java.util.Vector;
 
-/* Estrategia de Busqueda en grafo en Profundidad Interactiva, 
+/** Estrategia de Busqueda en grafo en Profundidad Interactiva, 
  * Implementacion de la interfaz Busqueda
  * Hereda de la clase abstracta BusquedaGrafo (generica independiente de la estrategia)
  * Implementa el metodo buscarSolucion() y devuelve un vector de operadores (solucion)

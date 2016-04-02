@@ -30,6 +30,16 @@ Costo camino: es igual al número de pasos, por lo tanto 1.
  *
  */
 public class Main {
+    /**
+     * se mezcla el cubo generado con dos movimientos aleatorios (la semilla es para determinar el movimiento aleatorio en cada paso)
+     * muestra la semilla, luego se muestran los movimientos realizados
+    <br>
+     * por ultimo se muestra el cubo como quedó 
+     * genera un problema con el cubo y la estrategia indicada, luego obtiene la solucion,
+     * se muestra los movimientos que siguio para llegar a la solucion,se aplican los movimientos de la solucion
+    <br>
+     * por ultimo muestra el cubo armado, o indica que no se encontro solucion de ser el caso
+    */
      public static void main(String[] args) {
          
         Cubo cubo = new Cubo();

@@ -1,8 +1,3 @@
-/*
- * JFrameRubik.java
- * Modificado por IA 2010
- * Interfaz Grafica
- */
 package rubik.grafico;
 
 import java.util.Vector;
@@ -15,6 +10,11 @@ import rubik.modelo.EstadoRubik;
 import rubik.modelo.Movimiento;
 import rubik.modelo.OperadorRubik;
 
+/**
+ * JFrameRubik.java
+ * Modificado por IA 2010
+ * Interfaz Grafica
+ */
 public class JFrameRubik extends javax.swing.JFrame {
 
     /** Creates new form JFrameRubik */
@@ -297,7 +297,7 @@ private void btAplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         });
     }
     
-     // panel de botones con: aplicar, desordenar, inicializar, mover, resolver y salir. Ademas un selector de estrategias
+    // panel de botones con: aplicar, desordenar, inicializar, mover, resolver y salir. Ademas un selector de estrategias
     // un gráfico del cubo, una etiqueta y un campo para la semilla
     // componente JSpinner
     // cuadro de textos para desordenar, mover y resolver.
@@ -324,7 +324,7 @@ private void btAplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     
     
     
-     // Metodo para mezclar el cubo teniendo en cuenta la semilla elegida y la cantidad de pasos, devuelve los movimientos realizados (como texto)
+    // Metodo para mezclar el cubo teniendo en cuenta la semilla elegida y la cantidad de pasos, devuelve los movimientos realizados (como texto)
     private String desordenarCubo(int pasos) {
         Cubo c = jPanelRubik.getCubo();     
         int semilla = Integer.parseInt( selecionSemilla.getText() ); 
@@ -338,7 +338,7 @@ private void btAplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         return (strMovimientos); 
     }
 
-// Metodo para mover el cubo en funcion de determinados movimientos
+    // Metodo para mover el cubo en funcion de determinados movimientos
     private void moverCubo(String text) {
         if (text != null) {
             Vector<Movimiento> movimientos = new Vector<Movimiento>();
@@ -357,12 +357,13 @@ private void btAplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }
     
-    
-     // Metodo que dado un problema (que depende del estado inicial del cubo y de la estrategia seleccionada)
-    // muestra el estado inicial del cubo, luego buscas la secuencia de movimientos que llevan a la solucion
-    // muestra la secuencia de acciones y resuelve el cubo aplicandolas.
-    // muestra el resultado del problema (cubo armado o si no se encontro la solucion)
-    // devuelve un string con los movimientos realizados
+    /** 
+     * Metodo que dado un problema (que depende del estado inicial del cubo y de la estrategia seleccionada)
+     muestra el estado inicial del cubo, luego buscas la secuencia de movimientos que llevan a la solucion
+     muestra la secuencia de acciones y resuelve el cubo aplicandolas.
+     muestra el resultado del problema (cubo armado o si no se encontro la solucion)
+     devuelve un string con los movimientos realizados 
+     */
     private String resolverCubo(Cubo c) {
        Problema problema = new Problema(new EstadoRubik((c)),
                                           FactoriaEstrategias.getEstrategia(SeleccionEstrategia.getSelectedIndex()));

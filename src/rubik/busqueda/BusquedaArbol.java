@@ -3,7 +3,7 @@ package rubik.busqueda;
 import java.util.LinkedList;
 import java.util.Vector;
 
-/* Clase abstracta que guarda las implementaciones genericas para una Busqueda en Arbol
+/** Clase abstracta que guarda las implementaciones genericas para una Busqueda en Arbol
  * Hereda de la clase RendimientoBusqueda, 
  * para calcular medidas de evaluacion de las estrategias de busqueda
  * Usa lista ABIERTOS (LinkedList)

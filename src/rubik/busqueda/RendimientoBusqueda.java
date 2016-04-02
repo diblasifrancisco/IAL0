@@ -1,6 +1,6 @@
 package rubik.busqueda;
 
-/* Clase abstracta que guarda los metodos requeridos para
+/** Clase abstracta que guarda los metodos requeridos para
  * calular las medidas de rendimiento para evaluar los algoritmos de busqueda
  * Inteligencia Artificial 2016
  */

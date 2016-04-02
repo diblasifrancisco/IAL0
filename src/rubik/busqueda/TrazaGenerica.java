@@ -2,7 +2,7 @@ package rubik.busqueda;
 
 import java.util.LinkedList;
 
-/* Permite visualizar cada estado de la forma: 
+/** Permite visualizar cada estado de la forma: 
  * Accion: <estado,(costo),profundidad>
  * Se imprime por pantalla el estado inicial 
  * y en cada interacción, al inicio, lista de estados de la frontera, 

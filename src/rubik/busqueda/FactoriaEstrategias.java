@@ -1,15 +1,11 @@
-/*
- * Esta clase es una factoria de estrategias de busqueda que implementen la interface Busqueda.java.
- * ...
- *
- *
- */
-
 package rubik.busqueda;
 
+/**
+ * Esta clase es una factoria de estrategias de busqueda que implementen la interface Busqueda.java.
+ */
 public class FactoriaEstrategias {
     
-    //    variables que determinan las propiedades de la estrategia (anchura, profundida, costo) tanto para un arbol como para un grafo.
+//    variables que determinan las propiedades de la estrategia (anchura, profundida, costo) tanto para un arbol como para un grafo.
 //    se inicializa con la estrategia "busqueda costo uniforme arbol"
     public static final int ANCHURA_ARBOL = 0;
     public static final int COSTO_UNIFORME_ARBOL = 1;

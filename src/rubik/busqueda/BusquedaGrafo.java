@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Vector;
 
-/* Clase abstracta que guarda las implementaciones genericas para una Busqueda en Grafo
+/** Clase abstracta que guarda las implementaciones genericas para una Busqueda en Grafo
  * Hereda de la clase RendimientoBusqueda, 
  * para calcular medidas de evaluacion de las estrategias de busqueda
  * Usa lista ABIERTOS (LinkedList) y lista CERRADOS (Hastable) usando Estado como clave
