@@ -323,8 +323,9 @@ private void btAplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
 
     
     
-    
-    // Metodo para mezclar el cubo teniendo en cuenta la semilla elegida y la cantidad de pasos, devuelve los movimientos realizados (como texto)
+    /**
+     * Metodo para mezclar el cubo teniendo en cuenta la semilla elegida y la cantidad de pasos, devuelve los movimientos realizados (como texto)
+     */
     private String desordenarCubo(int pasos) {
         Cubo c = jPanelRubik.getCubo();     
         int semilla = Integer.parseInt( selecionSemilla.getText() ); 

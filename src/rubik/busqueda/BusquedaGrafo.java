@@ -16,22 +16,26 @@ public abstract class BusquedaGrafo  extends RendimientoBusqueda{
         HashMap<Estado, NodoBusqueda> listaCerrada; 
         LinkedList<NodoBusqueda>      listaAbierta;
 	TrazaGenerica traza;
-
- protected LinkedList<NodoBusqueda> expandirNodo(NodoBusqueda nodoPadre) {
-        LinkedList<NodoBusqueda> expandidos = new LinkedList<NodoBusqueda>(); 
-        for(Operador oper : nodoPadre.getEstado().operadoresAplicables()) {
-          NodoBusqueda n = new NodoBusqueda(nodoPadre.getEstado().aplicarOperador(oper),nodoPadre,oper);
-                            n.setProfundidad(nodoPadre.getProfundidad() + 1); 
-                            n.setCosto(nodoPadre.getCosto() + 1);             
-          if(!listaCerrada.containsKey(n.getEstado())) {
-            expandidos.add(n); 
-          }
-        }
-	 //TRAZA muestro la lista de hijos del nodo padre expandido
-         return expandidos;
+/**
+ Genera los nodos hijos dado un nodo 
+ */
+protected LinkedList<NodoBusqueda> expandirNodo(NodoBusqueda nodoPadre) {
+    LinkedList<NodoBusqueda> expandidos = new LinkedList<NodoBusqueda>(); 
+    for(Operador oper : nodoPadre.getEstado().operadoresAplicables()) {
+      NodoBusqueda n = new NodoBusqueda(nodoPadre.getEstado().aplicarOperador(oper),nodoPadre,oper);
+                        n.setProfundidad(nodoPadre.getProfundidad() + 1); 
+                        n.setCosto(nodoPadre.getCosto() + 1);             
+      if(!listaCerrada.containsKey(n.getEstado())) {
+        expandidos.add(n); 
+      }
+    }
+     //TRAZA muestro la lista de hijos del nodo padre expandido
+     return expandidos;
   }
-
-  protected Vector<Operador> encontrarCamino(NodoBusqueda nodoFinal) {
+/**
+ Devuelve el listado de acciones que llegan a la solución encontrada
+ */
+protected Vector<Operador> encontrarCamino(NodoBusqueda nodoFinal) {
     Vector<Operador> camino = new Vector<Operador>(); 
     NodoBusqueda nodoPaso = nodoFinal;
     while(nodoPaso.getPadre() != null) {

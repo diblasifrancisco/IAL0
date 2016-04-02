@@ -13,20 +13,22 @@ public abstract class RendimientoBusqueda {
   long tiempoBusquedaMili; 
   long cantidadNodosExplorados; 
   long cantidadNodosSobrantes;  
-
-// debe llamarse al finalzar la busqueda antes de retornar el camino solucion  
-//  devuelve un String ocn el tiempo de busqueda (en milisegundos y segundos), 
-//  los nodos generados y los nodos explorados
-//  utiliza los metodos reporteInicioBusqueda, reporteFinBusqueda, reporteNodosExplorados, reporteNodosExplorados y reporteNodosSobrantes
-//  para realizar los calculos de las propiedades a mostrar.
-  
+/**
+ debe llamarse al finalzar la busqueda antes de retornar el camino solucion  <br>
+  devuelve un String con el tiempo de busqueda (en milisegundos y segundos), 
+  los nodos generados y los nodos explorados <br>
+  utiliza los metodos reporteInicioBusqueda, reporteFinBusqueda, reporteNodosExplorados, reporteNodosExplorados y reporteNodosSobrantes
+  para realizar los calculos de las propiedades a mostrar.
+  */
   public String getReporteCompleto(){
          return ("Tiempo de busqueda: " + tiempoBusquedaMili + " milisegundos (" + tiempoBusquedaSeg + " segundos)" +
         "\n"+"Nodos Generados: " + (cantidadNodosExplorados + cantidadNodosSobrantes) +
         "\n"+"Nodos Explorados: " + cantidadNodosExplorados) ;
    }
   
-  // se toma el tiempo inicial al comienzo de la busqueda
+ /**
+  * se toma el tiempo inicial al comienzo de la busqueda
+  */
   protected void reporteInicioBusqueda() {
     cantidadNodosExplorados = 0;
     cantidadNodosSobrantes = 0;
@@ -34,7 +36,9 @@ public abstract class RendimientoBusqueda {
     tiempoBusquedaSeg = (System.currentTimeMillis()/ 1000);
   }
 
-//se llama cuando se evalua un nodo extraido de la lista abirta  
+/**
+ * se llama cuando se evalua un nodo extraido de la lista abirta  
+ */
   protected void reporteNodosExplorados() {
     cantidadNodosExplorados++;
   }
@@ -49,9 +53,10 @@ public abstract class RendimientoBusqueda {
   protected void reporteNodosSobrantes(long cantidad) {
     cantidadNodosSobrantes += cantidad;
   }
-  
- // y se toma el tiempo final al finalizar la busqueda
- // se calcula diferencia de inicio y fina para determinar tiempo en seg y miliseg
+  /**
+  y se toma el tiempo final al finalizar la busqueda
+  se calcula diferencia de inicio y fina para determinar tiempo en seg y miliseg
+  */
   protected void reporteFinBusqueda() {
     tiempoBusquedaMili = System.currentTimeMillis() - tiempoBusquedaMili;
     tiempoBusquedaSeg = (System.currentTimeMillis()/ 1000) - tiempoBusquedaSeg;
