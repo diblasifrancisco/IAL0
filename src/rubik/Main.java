@@ -17,17 +17,14 @@ import rubik.modelo.Movimiento;
  * Formulacion conceptual de la solucion del Cubo Rubik
  * como un problema de busqueda
  * 
-Estados: Las distintas posiciones de las caras en el cubo.
-Estado inicial: cualquiera puede ser estado inicial.
-Estado final:cubo con cada cara de un solo color
-Función sucesor: problema:posición de las caras, acción: mover una cara, sucesor:posición de las caras.
-Operadores/acciones:mover una fila o una columna de una cara del cubo, moviendo las correspondientes filas o columnas de las caras que correspondan, siguiendo el modelo de un cubo.
-Test objetivo: las 6 caras con todas las casillas de un mismo color.
-Costo camino: es igual al número de pasos, por lo tanto 1.
- * 
- * 
- * 
- *
+Estados: Las distintas posiciones de las caras en el cubo.<br>
+Estado inicial: cualquiera puede ser estado inicial. <br>
+Estado final:cubo con cada cara de un solo color<br>
+Función sucesor: problema:posición de las caras, acción: mover una cara, sucesor:posición de las caras.<br>
+Operadores/acciones:mover una fila o una columna de una cara del cubo, moviendo las correspondientes filas 
+* o columnas de las caras que correspondan, siguiendo el modelo de un cubo.<br>
+Test objetivo: las 6 caras con todas las casillas de un mismo color.<br>
+Costo camino: es igual al número de pasos, por lo tanto 1 (por cada movimiento).
  */
 public class Main {
     /**
