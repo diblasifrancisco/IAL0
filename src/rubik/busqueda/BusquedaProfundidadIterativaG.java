@@ -17,14 +17,15 @@ public class BusquedaProfundidadIterativaG extends BusquedaGrafo {
     public Vector<Operador> busquedaGrafoA(Estado inicial){
     
         Vector<Operador> caminoSolucion = null;
-
+        this.reporteInicioBusqueda();
         while(true){
             busquedapl.setProfundidadLimite(profundidadLimite);
             caminoSolucion = busquedapl.busquedaGrafoA(inicial);
             if (!caminoSolucion.isEmpty())break;
             profundidadLimite++;
         }
-
+        this.reporteFinBusqueda();
+        System.out.println(this.getReporteCompleto());
         return caminoSolucion;
     }
 
