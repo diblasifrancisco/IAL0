@@ -50,25 +50,6 @@ protected Vector<Operador> encontrarCamino(NodoBusqueda nodoFinal) {
     return camino;
   }
 
-public boolean isEnAbierta(Nodo nodo, LinkedList<Estado> listacerrada){
-    boolean flag=false;
-    for (NodoBusqueda hoja : listaAbierta) {
-    if (nodo.getEstado().equals(hoja.getEstado())) {
-    return true;
-            }
-    }    
-    return flag;
-}
-
-public boolean isEnCerrada(Nodo nodo, LinkedList<Estado> listacerrada){
-    boolean flag=false;
-    for (Estado estado : listacerrada) {
-    if (nodo.getEstado().equals(estado)) {
-    return true;
-            }
-    }    
-    return flag;
-}
 
 
 }
