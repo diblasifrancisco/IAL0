@@ -16,6 +16,7 @@ public abstract class BusquedaGrafo  extends RendimientoBusqueda{
         HashMap<Estado, NodoBusqueda> listaCerrada; 
         LinkedList<NodoBusqueda>      listaAbierta;
 	TrazaGenerica traza;
+        char tipo = TipoBusquedaGrafo.CONTROL_LC;
     /**
      Genera los nodos hijos dado un nodo 
      */
@@ -58,16 +59,15 @@ public abstract class BusquedaGrafo  extends RendimientoBusqueda{
         return listaCerrada.containsKey(nodo.getEstado());
     }
 
-    public Vector<Operador> buscarSolucion(Estado inicial, TipoBusquedaGrafo tipo){
+    public Vector<Operador> buscarSolucion(Estado inicial){
         switch (tipo)
         {
-           case ParametrosConstantes.CONTROL_LC:
+           case TipoBusquedaGrafo.CONTROL_LC:
                return this.busquedaGrafoA(inicial); 
-           case ParametrosConstantes.CONTROL_LA_LC:
+           case TipoBusquedaGrafo.CONTROL_LA_LC:
                return this.busquedaGrafoB(inicial);  
            default: return null;
         }
-  
     }
     
     public abstract Vector<Operador> busquedaGrafoA(Estado inicial);
