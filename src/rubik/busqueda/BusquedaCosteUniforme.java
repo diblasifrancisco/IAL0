@@ -7,10 +7,18 @@ import java.util.Vector;
  * Implementacion de la interfaz Busqueda
  * Hereda de la clase abstracta BusquedaArbol (generica independiente de la estrategia)
  * Implementa el metodo buscarSolucion() y devuelve un vector de operadores (solucion)
+ * 
+ * 
+ * 
  */
 
 public class BusquedaCosteUniforme extends BusquedaArbol {
 
+    
+    /**
+      * busca la solucion, es decir el listado de acciones para resolver el problema de busqueda  
+      * por busqueda de costo uniforme, obteniendo el nodo de menor costo de la lista abierta
+    */
     @Override
     public Vector<Operador> buscarSolucion(Estado inicial){
         //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda

@@ -12,6 +12,12 @@ import java.util.Vector;
 
 public class BusquedaAnchura extends BusquedaArbol {
 
+    
+      /**
+      * busca la solucion, es decir el listado de acciones para resolver el problema de busqueda  
+      * por busqueda primero en anchu obteniendo el primer elemento de la cola y colocando 
+      * los nodos expandidos al final
+    */
     @Override
     public Vector<Operador> buscarSolucion(Estado inicial){
         //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda

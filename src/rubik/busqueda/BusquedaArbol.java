@@ -15,6 +15,9 @@ public abstract class BusquedaArbol extends RendimientoBusqueda implements Busqu
 	LinkedList<NodoBusqueda> listaAbierta;
 	TrazaGenerica traza;
 
+        /**
+     Genera los nodos hijos dado un nodo 
+     */
   protected LinkedList<NodoBusqueda> expandirNodo(NodoBusqueda nodoPadre) {
      LinkedList<NodoBusqueda> expandidos = new LinkedList<NodoBusqueda>(); 
         for(Operador oper : nodoPadre.getEstado().operadoresAplicables()) {
@@ -28,7 +31,9 @@ public abstract class BusquedaArbol extends RendimientoBusqueda implements Busqu
          //TRAZA muestro la lista de hijos del nodo padre expandido
          return expandidos;
   }
-
+/**
+     Devuelve el listado de acciones que llegan a la solución encontrada
+     */
   protected Vector<Operador> encontrarCamino(NodoBusqueda nodoFinal) {
     Vector<Operador> camino = new Vector<Operador>(); 
     NodoBusqueda nodoPaso = nodoFinal;
