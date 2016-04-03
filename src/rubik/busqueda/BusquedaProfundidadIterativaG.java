@@ -9,10 +9,18 @@ import java.util.Vector;
  */
 
 public class BusquedaProfundidadIterativaG extends BusquedaGrafo {
-
+    
+    /**
+     crea una instancia de busqueda en profundidad limitada para usarla en la busqueda
+     */
     BusquedaProfundidadLimitadaG busquedapl = new BusquedaProfundidadLimitadaG();
     int profundidadLimite = 0;
 
+    /**
+     * Busca la solución controlando estados repetidos en lista cerrada al quitar un nodo de lista abierta </br>
+     * Con la profundidad inicializada en cero ejecuta repetidamente la busqueda en profundidad limitada,
+     * aumentando el limite en cada iteracion
+     */
     @Override
     public Vector<Operador> busquedaGrafoA(Estado inicial){
     
@@ -29,6 +37,11 @@ public class BusquedaProfundidadIterativaG extends BusquedaGrafo {
         return caminoSolucion;
     }
 
+    /**
+     Busca la solución controlando estados repetidos en lista cerrada al quitar un nodo de lista abierta </br>
+     * Con la profundidad inicializada en cero ejecuta repetidamente la busqueda en profundidad limitada,
+     * aumentando el limite en cada iteracion
+     */
     @Override
     public Vector<Operador> busquedaGrafoB(Estado inicial){
     

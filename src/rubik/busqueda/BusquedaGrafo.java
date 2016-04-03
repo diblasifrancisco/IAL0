@@ -50,14 +50,27 @@ public abstract class BusquedaGrafo  extends RendimientoBusqueda implements Busq
 
         return camino;
       }
-
+    /**
+     Verifica si un nodo está presente en lista abierta
+     */
     protected boolean isEnAbierta(NodoBusqueda nodo){
-        return listaAbierta.contains(nodo);
+                
+        for (NodoBusqueda nodoListaAbierta: listaAbierta){
+            if (nodoListaAbierta.getEstado().equals(nodo.getEstado())){
+                return true;
+            }
+        }
+        return false;
     }
-
+    /**
+     Verifica si el estado asociado a un nodo está en lista cerrada
+    */
     protected boolean isEnCerrada(NodoBusqueda nodo){
         return listaCerrada.containsKey(nodo.getEstado());
     }
+    /**
+     De acuerdo al valor de la variable tipo se decide que busqueda ejecutar
+     */
     @Override
     public Vector<Operador> buscarSolucion(Estado inicial){
         switch (tipo)
@@ -70,6 +83,12 @@ public abstract class BusquedaGrafo  extends RendimientoBusqueda implements Busq
         }
     }
     
+    /**
+     Busca la solución controlando estados repetidos en lista cerrada al quitar un nodo de lista abierta
+     */
     public abstract Vector<Operador> busquedaGrafoA(Estado inicial);
+    /**
+     Busca la solución controlando estados repetidos en lista cerrada y abierta al generar hijos
+     */
     public abstract Vector<Operador> busquedaGrafoB(Estado inicial);
 }

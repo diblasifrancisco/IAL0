@@ -11,6 +11,10 @@ import java.util.Vector;
  */
 
 public class BusquedaCosteUniformeG extends BusquedaGrafo {
+    
+    /**
+     Busca la solución controlando estados repetidos en lista cerrada al quitar un nodo de lista abierta
+    */
     @Override
     public Vector<Operador> busquedaGrafoA(Estado inicial){
         //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda
@@ -66,6 +70,10 @@ public class BusquedaCosteUniformeG extends BusquedaGrafo {
           return encontrarCamino(nodoSolucion);
         }
     }
+    
+    /**
+     Busca la solución controlando estados repetidos en lista cerrada y abierta al generar hijos
+    */
     @Override
     public Vector<Operador> busquedaGrafoB(Estado inicial){
         //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda
@@ -128,6 +136,9 @@ public class BusquedaCosteUniformeG extends BusquedaGrafo {
     }
     }
     
+    /**
+     * Devuelve el nodo con menor costo de la lista abierta
+    */
     private NodoBusqueda getNodoMenorCostoListaAbierta() {
         NodoBusqueda nodomenor = listaAbierta.getFirst();
         int costo = nodomenor.getCosto();

@@ -22,6 +22,9 @@ public class BusquedaProfundidadLimitadaG extends BusquedaGrafo {
       return profundidadLimite;
     }
 
+    /**
+     Busca la solución controlando estados repetidos en lista cerrada al quitar un nodo de lista abierta
+     */
     @Override
     public Vector<Operador> busquedaGrafoA(Estado inicial){
         //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda
@@ -84,6 +87,9 @@ public class BusquedaProfundidadLimitadaG extends BusquedaGrafo {
         }
     }
 
+    /**
+     Busca la solución controlando estados repetidos en lista cerrada al quitar un nodo de lista abierta
+     */
     @Override
     public Vector<Operador> busquedaGrafoB(Estado inicial){
         //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda

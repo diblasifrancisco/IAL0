@@ -22,6 +22,9 @@ public class BusquedaAnchuraG extends BusquedaGrafo {
     * al terminar contabilizo nodos sobrantes con la clase RendimientoBusqueda.<br>
     * Contabilizo tiempo al finalizar busqueda con la clase RendimientoBusqueda
      */
+    /**
+     Busca la solución controlando estados repetidos en lista cerrada al quitar un nodo de lista abierta
+     */
     @Override
     public Vector<Operador> busquedaGrafoA(Estado inicial){
         //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda
@@ -77,7 +80,10 @@ public class BusquedaAnchuraG extends BusquedaGrafo {
           return encontrarCamino(nodoSolucion);
         }
     }
-  
+    
+    /**
+     Busca la solución controlando estados repetidos en lista cerrada y abierta al generar hijos
+     */
     @Override
     public Vector<Operador> busquedaGrafoB(Estado inicial){
         //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda
