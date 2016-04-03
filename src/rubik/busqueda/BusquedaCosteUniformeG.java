@@ -10,7 +10,7 @@ import java.util.Vector;
  * Implementa el metodo buscarSolucion() y devuelve un vector de operadores (solucion)
  */
 
-public class BusquedaCosteUniformeG extends BusquedaGrafo implements Busqueda {
+public class BusquedaCosteUniformeG extends BusquedaGrafo {
     @Override
   public Vector<Operador> buscarSolucion(Estado inicial){
     listaCerrada = new HashMap<Estado, NodoBusqueda>();

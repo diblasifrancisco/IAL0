@@ -10,7 +10,7 @@ import java.util.Vector;
  * Implementa el metodo buscarSolucion() y devuelve un vector de operadores (solucion)
  */
 
-public class BusquedaProfundidadG extends BusquedaGrafo implements Busqueda {
+public class BusquedaProfundidadG extends BusquedaGrafo {
 
     @Override
   public Vector<Operador> buscarSolucion(Estado inicial){
