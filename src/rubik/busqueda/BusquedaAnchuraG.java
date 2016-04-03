@@ -25,6 +25,8 @@ public class BusquedaAnchuraG extends BusquedaGrafo {
     @Override
   public Vector<Operador> busquedaGrafoA(Estado inicial){
     //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda
+    this.reporteInicioBusqueda();
+    
     listaCerrada = new HashMap<Estado, NodoBusqueda>();
     listaAbierta = new LinkedList<NodoBusqueda>();
     Boolean solucionEncontrada = false; 
@@ -44,6 +46,8 @@ public class BusquedaAnchuraG extends BusquedaGrafo {
         traza.imprimirInicioIteracion(listaAbierta);
         nodoActual = listaAbierta.pollFirst();
        //Antes de evaluar si el nodo es solución contabilizo nodos explorados con la clase RendimientoBusqueda
+       this.reporteNodosExplorados();
+       
         //if(!listaCerrada.containsKey(nodoActual.getEstado())) {
         if(!this.isEnCerrada(nodoActual)) {  
             if(nodoActual.getEstado().esFinal()) {
@@ -61,7 +65,10 @@ public class BusquedaAnchuraG extends BusquedaGrafo {
       }
     }
     // al terminar contabilizo nodos sobrantes con la clase RendimientoBusqueda
+    this.reporteNodosSobrantes(listaAbierta.size());
     // Contabilizo tiempo al finalizar busqueda con la clase RendimientoBusqueda
+    System.out.println(this.getReporteCompleto());
+    
     if(nodoSolucion == null) {
       return new Vector<Operador>();
     }
@@ -73,6 +80,8 @@ public class BusquedaAnchuraG extends BusquedaGrafo {
    @Override
   public Vector<Operador> busquedaGrafoB(Estado inicial){
   //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda
+    this.reporteInicioBusqueda();
+    
     listaCerrada = new HashMap<Estado, NodoBusqueda>();
     listaAbierta = new LinkedList<NodoBusqueda>();
     Boolean solucionEncontrada = false; 
@@ -90,7 +99,9 @@ public class BusquedaAnchuraG extends BusquedaGrafo {
 	//muestro estado de lista abierta al coienzo de cada interación
         traza.imprimirInicioIteracion(listaAbierta);
         nodoActual = listaAbierta.pollFirst();
-       //Antes de evaluar si el nodo es solución contabilizo nodos explorados con la clase RendimientoBusqueda
+        //Antes de evaluar si el nodo es solución contabilizo nodos explorados con la clase RendimientoBusqueda
+        this.reporteNodosExplorados();
+        
         //if(!listaCerrada.containsKey(nodoActual.getEstado())) {
          
         if(nodoActual.getEstado().esFinal()) {
@@ -116,7 +127,10 @@ public class BusquedaAnchuraG extends BusquedaGrafo {
       }
     }
     // al terminar contabilizo nodos sobrantes con la clase RendimientoBusqueda
+    this.reporteNodosSobrantes(listaAbierta.size());
     // Contabilizo tiempo al finalizar busqueda con la clase RendimientoBusqueda
+    System.out.println(this.getReporteCompleto());
+    
     if(nodoSolucion == null) {
       return new Vector<Operador>();
     }
