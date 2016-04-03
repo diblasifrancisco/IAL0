@@ -35,7 +35,7 @@ public class BusquedaAnchuraG extends BusquedaGrafo {
 		nodoActual.setProfundidad(0);   
 		nodoActual.setCosto(0); 
     //creo una Traza con el nodo raiz(actual)
-    TrazaGenerica traza = new TrazaGenerica(nodoActual);
+    traza = new TrazaGenerica(nodoActual);
     listaAbierta.add(nodoActual);
     while(!solucionEncontrada) {
       if(listaAbierta.size() == 0) {
@@ -89,7 +89,7 @@ public class BusquedaAnchuraG extends BusquedaGrafo {
     NodoBusqueda nodoActual = new NodoBusqueda(inicial,null,null);
 		nodoActual.setProfundidad(0);   
 		nodoActual.setCosto(0); 
-    TrazaGenerica traza = new TrazaGenerica(nodoActual);
+    traza = new TrazaGenerica(nodoActual);
     listaAbierta.add(nodoActual);
     while(!solucionEncontrada) {
       if(listaAbierta.size() == 0) {
