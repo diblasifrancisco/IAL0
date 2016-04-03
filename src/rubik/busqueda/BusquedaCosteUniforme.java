@@ -30,6 +30,8 @@ public class BusquedaCosteUniforme extends BusquedaArbol implements Busqueda {
      /*
      * ......
      */
+     
+     return new NodoBusqueda(null , null, null);
 }
 
 }

@@ -23,7 +23,7 @@ public class BusquedaAnchuraG extends BusquedaGrafo {
     * Contabilizo tiempo al finalizar busqueda con la clase RendimientoBusqueda
      */
     @Override
-  public Vector<Operador> busquedaGrafoA(Estado inicial){
+    public Vector<Operador> busquedaGrafoA(Estado inicial){
     //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda
     this.reporteInicioBusqueda();
     
@@ -77,8 +77,8 @@ public class BusquedaAnchuraG extends BusquedaGrafo {
     }
   }
   
-   @Override
-  public Vector<Operador> busquedaGrafoB(Estado inicial){
+    @Override
+    public Vector<Operador> busquedaGrafoB(Estado inicial){
     //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda
     this.reporteInicioBusqueda();
     
@@ -114,7 +114,7 @@ public class BusquedaAnchuraG extends BusquedaGrafo {
           
           LinkedList<NodoBusqueda> listaAbiertaAux = expandirNodo(nodoActual);
           for(NodoBusqueda nodo : listaAbiertaAux){
-            if(!this.isEnAbierta(nodo)||!this.isEnCerrada(nodo)){
+            if(this.isEnAbierta(nodo)||this.isEnCerrada(nodo)){
                    listaAbiertaAux.remove(nodo);
             }
           }

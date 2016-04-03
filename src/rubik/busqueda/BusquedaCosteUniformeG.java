@@ -65,7 +65,7 @@ public class BusquedaCosteUniformeG extends BusquedaGrafo {
           return encontrarCamino(nodoSolucion);
         }
     }
-    
+    @Override
     public Vector<Operador> busquedaGrafoB(Estado inicial){
         //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda
         this.reporteInicioBusqueda();
@@ -102,7 +102,7 @@ public class BusquedaCosteUniformeG extends BusquedaGrafo {
 
               LinkedList<NodoBusqueda> listaAbiertaAux = expandirNodo(nodoActual);
               for(NodoBusqueda nodo : listaAbiertaAux){
-                if(!this.isEnAbierta(nodo)||!this.isEnCerrada(nodo)){
+                if(this.isEnAbierta(nodo)||this.isEnCerrada(nodo)){
                        listaAbiertaAux.remove(nodo);
                 }
               }
@@ -125,7 +125,8 @@ public class BusquedaCosteUniformeG extends BusquedaGrafo {
       return encontrarCamino(nodoSolucion);
     }
     }
-  private NodoBusqueda getNodoMenorCostoListaAbierta() {
+    
+    private NodoBusqueda getNodoMenorCostoListaAbierta() {
     NodoBusqueda nodomenor = listaAbierta.getFirst();
     int costo = nodomenor.getCosto();
     for(NodoBusqueda nodo : listaAbierta){
