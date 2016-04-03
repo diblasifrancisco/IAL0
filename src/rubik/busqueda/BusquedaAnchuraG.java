@@ -79,7 +79,7 @@ public class BusquedaAnchuraG extends BusquedaGrafo {
   
    @Override
   public Vector<Operador> busquedaGrafoB(Estado inicial){
-  //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda
+    //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda
     this.reporteInicioBusqueda();
     
     listaCerrada = new HashMap<Estado, NodoBusqueda>();
