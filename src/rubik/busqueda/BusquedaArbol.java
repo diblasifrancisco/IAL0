@@ -12,7 +12,7 @@ import java.util.Vector;
  */
 
 public abstract class BusquedaArbol extends RendimientoBusqueda implements Busqueda {
-	LinkedList<NodoBusqueda> abierta;
+	LinkedList<NodoBusqueda> listaAbierta;
 	TrazaGenerica traza;
 
   protected LinkedList<NodoBusqueda> expandirNodo(NodoBusqueda nodoPadre) {

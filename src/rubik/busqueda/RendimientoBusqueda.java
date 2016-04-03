@@ -33,7 +33,7 @@ public abstract class RendimientoBusqueda {
     cantidadNodosExplorados = 0;
     cantidadNodosSobrantes = 0;
     tiempoBusquedaMili = System.currentTimeMillis();
-    tiempoBusquedaSeg = (System.currentTimeMillis()/ 1000);
+    tiempoBusquedaSeg = (System.currentTimeMillis()/ 1000L);
   }
 
 /**
@@ -59,7 +59,7 @@ public abstract class RendimientoBusqueda {
   */
   protected void reporteFinBusqueda() {
     tiempoBusquedaMili = System.currentTimeMillis() - tiempoBusquedaMili;
-    tiempoBusquedaSeg = (System.currentTimeMillis()/ 1000) - tiempoBusquedaSeg;
+    tiempoBusquedaSeg = (System.currentTimeMillis()/ 1000L) - tiempoBusquedaSeg;
   }
   
   public long getNroNodosGenerados() {

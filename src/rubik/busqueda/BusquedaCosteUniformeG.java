@@ -56,6 +56,7 @@ public class BusquedaCosteUniformeG extends BusquedaGrafo {
         // al terminar contabilizo nodos sobrantes con la clase RendimientoBusqueda
         this.reporteNodosSobrantes(listaAbierta.size());
         // Contabilizo tiempo al finalizar busqueda con la clase RendimientoBusqueda
+        this.reporteFinBusqueda();
         System.out.println(this.getReporteCompleto());
 
         if(nodoSolucion == null) {
@@ -116,6 +117,7 @@ public class BusquedaCosteUniformeG extends BusquedaGrafo {
     // al terminar contabilizo nodos sobrantes con la clase RendimientoBusqueda
     this.reporteNodosSobrantes(listaAbierta.size());
     // Contabilizo tiempo al finalizar busqueda con la clase RendimientoBusqueda
+    this.reporteFinBusqueda();
     System.out.println(this.getReporteCompleto());
     
     if(nodoSolucion == null) {
@@ -127,15 +129,14 @@ public class BusquedaCosteUniformeG extends BusquedaGrafo {
     }
     
     private NodoBusqueda getNodoMenorCostoListaAbierta() {
-    NodoBusqueda nodomenor = listaAbierta.getFirst();
-    int costo = nodomenor.getCosto();
-    for(NodoBusqueda nodo : listaAbierta){
-       if(nodo.getCosto()<nodomenor.getCosto()){
-        nodomenor = nodo;
-        costo = nodo.getCosto();
-       }
-     }
-    return nodomenor;
-  }
-
+        NodoBusqueda nodomenor = listaAbierta.getFirst();
+        int costo = nodomenor.getCosto();
+        for(NodoBusqueda nodo : listaAbierta){
+           if(nodo.getCosto()<nodomenor.getCosto()){
+            nodomenor = nodo;
+            costo = nodo.getCosto();
+           }
+         }
+        return nodomenor;
+    }
 }

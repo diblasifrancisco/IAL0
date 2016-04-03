@@ -73,6 +73,7 @@ public class BusquedaProfundidadLimitadaG extends BusquedaGrafo {
         // al terminar contabilizo nodos sobrantes con la clase RendimientoBusqueda
         this.reporteNodosSobrantes(listaAbierta.size());
         // Contabilizo tiempo al finalizar busqueda con la clase RendimientoBusqueda
+        this.reporteFinBusqueda();
         System.out.println(this.getReporteCompleto());
 
         if(nodoSolucion == null) {
@@ -140,6 +141,7 @@ public class BusquedaProfundidadLimitadaG extends BusquedaGrafo {
         // al terminar contabilizo nodos sobrantes con la clase RendimientoBusqueda
         this.reporteNodosSobrantes(listaAbierta.size());
         // Contabilizo tiempo al finalizar busqueda con la clase RendimientoBusqueda
+        this.reporteFinBusqueda();
         System.out.println(this.getReporteCompleto());
 
         if(nodoSolucion == null) {
