@@ -11,7 +11,7 @@ import java.util.Vector;
  * implementa el metodo encontrarCamino()
  */
 
-public abstract class BusquedaArbol extends RendimientoBusqueda{
+public abstract class BusquedaArbol extends RendimientoBusqueda implements Busqueda {
 	LinkedList<NodoBusqueda> abierta;
 	TrazaGenerica traza;
 

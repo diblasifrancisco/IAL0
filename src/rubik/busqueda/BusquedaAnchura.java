@@ -10,7 +10,7 @@ import java.util.Vector;
  */
 
 
-public class BusquedaAnchura extends BusquedaArbol implements Busqueda {
+public class BusquedaAnchura extends BusquedaArbol {
 
     @Override
     
