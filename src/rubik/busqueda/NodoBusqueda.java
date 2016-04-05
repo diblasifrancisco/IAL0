@@ -50,10 +50,9 @@ public class NodoBusqueda extends Nodo implements Comparable<NodoBusqueda>{
     public int compareTo(NodoBusqueda n) {
         if(n instanceof NodoBusqueda)
         {
+            
             NodoBusqueda s = (NodoBusqueda)n;
-            if(this.getEstado().equals(s.getEstado())){
-                return 1;
-            }
+            return Integer.compare(this.costo, s.costo);
         }
         return -1;
     }
