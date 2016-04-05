@@ -26,13 +26,13 @@ public class BusquedaProfundidadIterativaG extends BusquedaGrafo {
     
         Vector<Operador> caminoSolucion = null;
         while(true){
+            busquedapl.setProfundidadLimite(profundidadLimite);
             System.out.println("Iteracion actual: " + this.profundidadLimite);
             caminoSolucion = busquedapl.buscarSolucion(inicial);
             if(!caminoSolucion.isEmpty()){
                 return caminoSolucion;
             }
             this.profundidadLimite++;
-            busquedapl.setProfundidadLimite(profundidadLimite);
         }
     }
 
