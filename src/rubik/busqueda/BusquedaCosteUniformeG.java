@@ -1,5 +1,7 @@
 package rubik.busqueda;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Vector;
@@ -37,23 +39,24 @@ public class BusquedaCosteUniformeG extends BusquedaGrafo {
           else {
             //muestro estado de lista abierta al coienzo de cada interación
             traza.imprimirInicioIteracion(listaAbierta);
-            nodoActual = this.getNodoMenorCostoListaAbierta();
-           //Antes de evaluar si el nodo es solución contabilizo nodos explorados con la clase RendimientoBusqueda
-           this.reporteNodosExplorados();
+            //nodoActual = this.getNodoMenorCostoListaAbierta();
+            nodoActual = listaAbierta.pollFirst();
+            //Antes de evaluar si el nodo es solución contabilizo nodos explorados con la clase RendimientoBusqueda
+            this.reporteNodosExplorados();
 
             //if(!listaCerrada.containsKey(nodoActual.getEstado())) {
             if(!this.isEnCerrada(nodoActual)) {  
                 if(nodoActual.getEstado().esFinal()) {
-                solucionEncontrada = true;
-                nodoSolucion = nodoActual;
-              }
-              // si el estado actual no es objetivo lo expando (genero y pongo hijos)
-              else {
-                listaCerrada.put(nodoActual.getEstado(), nodoActual);
-                listaAbierta.addAll(expandirNodo(nodoActual));
-
-                traza.imprimirFinalIteracion(nodoActual, listaAbierta);
-              }
+                    solucionEncontrada = true;
+                    nodoSolucion = nodoActual;
+                  }
+                // si el estado actual no es objetivo lo expando (genero y pongo hijos)
+                else {
+                  listaCerrada.put(nodoActual.getEstado(), nodoActual);
+                  //listaAbierta.addAll(expandirNodo(nodoActual));
+                  this.ordenarListaAbierta(expandirNodo(nodoActual));
+                  traza.imprimirFinalIteracion(nodoActual, listaAbierta);
+                }
             }
           }
         }
@@ -95,7 +98,8 @@ public class BusquedaCosteUniformeG extends BusquedaGrafo {
           else {
             //muestro estado de lista abierta al coienzo de cada interación
             traza.imprimirInicioIteracion(listaAbierta);
-            nodoActual = this.getNodoMenorCostoListaAbierta();
+            //nodoActual = this.getNodoMenorCostoListaAbierta();
+            nodoActual = listaAbierta.pollFirst();
             //Antes de evaluar si el nodo es solución contabilizo nodos explorados con la clase RendimientoBusqueda
             this.reporteNodosExplorados();
 
@@ -115,8 +119,8 @@ public class BusquedaCosteUniformeG extends BusquedaGrafo {
                        listaAbiertaAux.remove(nodo);
                 }
               }
-
-              listaAbierta.addAll(listaAbiertaAux);
+              this.ordenarListaAbierta(listaAbiertaAux);
+              //listaAbierta.addAll(listaAbiertaAux);
 
               traza.imprimirFinalIteracion(nodoActual, listaAbierta);
             }
@@ -149,5 +153,14 @@ public class BusquedaCosteUniformeG extends BusquedaGrafo {
            }
          }
         return nodomenor;
+    }
+    
+    /**
+     * Agrega hijos a lista abierta y  la ordena. <br>
+     * Aqui es posible agregar lógica para desempates
+     */
+    private void ordenarListaAbierta(LinkedList<NodoBusqueda> listaHijos){
+        listaAbierta.addAll(listaHijos);
+        Collections.sort(listaAbierta);
     }
 }

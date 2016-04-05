@@ -6,7 +6,7 @@ package rubik.busqueda;
  * Usado para simplificar la reconstrucción del camino solucion.
  * Inteligencia Artificial 2016
  */
-public class NodoBusqueda extends Nodo {
+public class NodoBusqueda extends Nodo implements Comparable<NodoBusqueda>{
     /** Operador empleado para generar el Estado almacenado en este Nodo*/
     private Operador operador;
     private int costo;
@@ -44,5 +44,17 @@ public class NodoBusqueda extends Nodo {
 
     public void setProfundidad(int profundidad) {
         this.profundidad = profundidad;
+    }
+
+    @Override
+    public int compareTo(NodoBusqueda n) {
+        if(n instanceof NodoBusqueda)
+        {
+            NodoBusqueda s = (NodoBusqueda)n;
+            if(this.getEstado().equals(s.getEstado())){
+                return 1;
+            }
+        }
+        return -1;
     }
 }
