@@ -12,7 +12,7 @@ import java.util.Vector;
  * implementa el metodo encontrarCamino()
  */
 
-public abstract class BusquedaGrafo  extends RendimientoBusqueda implements Busqueda{
+public abstract class BusquedaGrafo  extends Busqueda{
         HashMap<Estado, NodoBusqueda> listaCerrada; 
         LinkedList<NodoBusqueda>      listaAbierta;
 	TrazaGenerica traza;

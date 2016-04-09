@@ -5,7 +5,7 @@ package rubik.busqueda;
  * Inteligencia Artificial 2016
  */
 
-public abstract class RendimientoBusqueda {
+public class RendimientoBusqueda {
 
     
     //    propiedades para indicar el tiempo que tardo la busqueda, como asi tambien los nodos explorados y los sobrantes.

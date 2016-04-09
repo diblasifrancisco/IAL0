@@ -22,7 +22,7 @@ public class BusquedaCosteUniforme extends BusquedaArbol {
     @Override
     public Vector<Operador> buscarSolucion(Estado inicial){
         //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda
-        this.reporteInicioBusqueda();
+        this.rendimiento.reporteInicioBusqueda();
 
         listaAbierta = new LinkedList<NodoBusqueda>();
         Boolean solucionEncontrada = false; 
@@ -42,7 +42,7 @@ public class BusquedaCosteUniforme extends BusquedaArbol {
             traza.imprimirInicioIteracion(listaAbierta);
             nodoActual = this.getNodoMenorCostoListaAbierta();
            //Antes de evaluar si el nodo es solución contabilizo nodos explorados con la clase RendimientoBusqueda
-           this.reporteNodosExplorados();
+           this.rendimiento.reporteNodosExplorados();
 
             //if(!listaCerrada.containsKey(nodoActual.getEstado())) {
               
@@ -61,10 +61,10 @@ public class BusquedaCosteUniforme extends BusquedaArbol {
           }
         }
         // al terminar contabilizo nodos sobrantes con la clase RendimientoBusqueda
-        this.reporteNodosSobrantes(listaAbierta.size());
+        this.rendimiento.reporteNodosSobrantes(listaAbierta.size());
         // Contabilizo tiempo al finalizar busqueda con la clase RendimientoBusqueda
-        this.reporteFinBusqueda();
-        System.out.println(this.getReporteCompleto());
+        this.rendimiento.reporteFinBusqueda();
+        System.out.println(this.rendimiento.getReporteCompleto());
 
         if(nodoSolucion == null) {
           return new Vector<Operador>();

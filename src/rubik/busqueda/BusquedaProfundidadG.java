@@ -18,7 +18,7 @@ public class BusquedaProfundidadG extends BusquedaGrafo {
     @Override
     public Vector<Operador> busquedaGrafoA(Estado inicial){
     //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda
-        this.reporteInicioBusqueda();
+        this.rendimiento.reporteInicioBusqueda();
 
         listaCerrada = new HashMap<Estado, NodoBusqueda>();
         listaAbierta = new LinkedList<NodoBusqueda>();
@@ -39,7 +39,7 @@ public class BusquedaProfundidadG extends BusquedaGrafo {
             traza.imprimirInicioIteracion(listaAbierta);
             nodoActual = listaAbierta.pollFirst();
            //Antes de evaluar si el nodo es solución contabilizo nodos explorados con la clase RendimientoBusqueda
-           this.reporteNodosExplorados();
+           this.rendimiento.reporteNodosExplorados();
 
             //if(!listaCerrada.containsKey(nodoActual.getEstado())) {
             if(!this.isEnCerrada(nodoActual)) {  
@@ -58,10 +58,10 @@ public class BusquedaProfundidadG extends BusquedaGrafo {
           }
         }
         // al terminar contabilizo nodos sobrantes con la clase RendimientoBusqueda
-        this.reporteNodosSobrantes(listaAbierta.size());
+        this.rendimiento.reporteNodosSobrantes(listaAbierta.size());
         // Contabilizo tiempo al finalizar busqueda con la clase RendimientoBusqueda
-        this.reporteFinBusqueda();
-        System.out.println(this.getReporteCompleto());
+        this.rendimiento.reporteFinBusqueda();
+        System.out.println(this.rendimiento.getReporteCompleto());
 
         if(nodoSolucion == null) {
           return new Vector<Operador>();
@@ -77,7 +77,7 @@ public class BusquedaProfundidadG extends BusquedaGrafo {
     @Override
     public Vector<Operador> busquedaGrafoB(Estado inicial){
         //Antes de comenzar la busqueda se contabiliza tiempo llamando metodo de la clase RendimientoBusqueda
-        this.reporteInicioBusqueda();
+        this.rendimiento.reporteInicioBusqueda();
 
         listaCerrada = new HashMap<Estado, NodoBusqueda>();
         listaAbierta = new LinkedList<NodoBusqueda>();
@@ -97,7 +97,7 @@ public class BusquedaProfundidadG extends BusquedaGrafo {
             traza.imprimirInicioIteracion(listaAbierta);
             nodoActual = listaAbierta.pollFirst();
             //Antes de evaluar si el nodo es solución contabilizo nodos explorados con la clase RendimientoBusqueda
-            this.reporteNodosExplorados();
+            this.rendimiento.reporteNodosExplorados();
 
             //if(!listaCerrada.containsKey(nodoActual.getEstado())) {
 
@@ -124,10 +124,10 @@ public class BusquedaProfundidadG extends BusquedaGrafo {
           }
         }
         // al terminar contabilizo nodos sobrantes con la clase RendimientoBusqueda
-        this.reporteNodosSobrantes(listaAbierta.size());
+        this.rendimiento.reporteNodosSobrantes(listaAbierta.size());
         // Contabilizo tiempo al finalizar busqueda con la clase RendimientoBusqueda
-        this.reporteFinBusqueda();
-        System.out.println(this.getReporteCompleto());
+        this.rendimiento.reporteFinBusqueda();
+        System.out.println(this.rendimiento.getReporteCompleto());
 
         if(nodoSolucion == null) {
           return new Vector<Operador>();
