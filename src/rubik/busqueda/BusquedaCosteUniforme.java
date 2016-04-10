@@ -1,5 +1,6 @@
 package rubik.busqueda;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Vector;
 
@@ -40,7 +41,7 @@ public class BusquedaCosteUniforme extends BusquedaArbol {
           else {
             //muestro estado de lista abierta al coienzo de cada interación
             traza.imprimirInicioIteracion(listaAbierta);
-            nodoActual = this.getNodoMenorCostoListaAbierta();
+            nodoActual = this.listaAbierta.pollFirst();
            //Antes de evaluar si el nodo es solución contabilizo nodos explorados con la clase RendimientoBusqueda
            this.rendimiento.reporteNodosExplorados();
 
@@ -53,8 +54,7 @@ public class BusquedaCosteUniforme extends BusquedaArbol {
               // si el estado actual no es objetivo lo expando (genero y pongo hijos)
             else {
                 
-                listaAbierta.addAll(expandirNodo(nodoActual));
-
+                this.ordenarListaAbierta(expandirNodo(nodoActual));
                 traza.imprimirFinalIteracion(nodoActual, listaAbierta);
             }
             
@@ -84,6 +84,11 @@ public class BusquedaCosteUniforme extends BusquedaArbol {
            }
          }
         return nodomenor;
+    }
+
+    private void ordenarListaAbierta(LinkedList<NodoBusqueda> listaHijos) {
+                listaAbierta.addAll(listaHijos);
+        Collections.sort(listaAbierta);
     }
 
 }

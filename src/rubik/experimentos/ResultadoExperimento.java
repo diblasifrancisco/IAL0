@@ -5,36 +5,57 @@
  */
 package rubik.experimentos;
 
+import rubik.busqueda.Busqueda;
+import rubik.busqueda.RendimientoBusqueda;
+
 /**
  *
  * @author gasmu_000
  */
-public class IteracionExperimento1 {
+public class ResultadoExperimento {
+    protected long tiempoBusqueda;
     
-    private long tiempoBusqueda;
+    protected long nroNodosExplorados;
     
-    private long nroNodosExplorados;
+    protected long maxListaAbierta;
     
-    private long maxListaAbierta;
+    protected boolean resultadoEncontrado;
     
-    private boolean esCompleta;
+    public ResultadoExperimento() {
+    }
 
+    public ResultadoExperimento(Busqueda busqueda) {
+        RendimientoBusqueda rendimiento = busqueda.getRendimiento();
+        
+        this.tiempoBusqueda = rendimiento.getTiempoBusquedaMili();
+        this.nroNodosExplorados = rendimiento.getNroNodosExplorados();
+        this.maxListaAbierta = rendimiento.getMaxListaAbierta();
+        this.resultadoEncontrado = rendimiento.isResultadoEncontrado();
+    }
+
+    @Override
+    public String toString() {
+        return "ResultadoExperimento1{" + "tiempoBusqueda=" + tiempoBusqueda + ", nroNodosExplorados=" + nroNodosExplorados + ", maxListaAbierta=" + maxListaAbierta + ", resultadoEncontrado=" + resultadoEncontrado + '}';
+    }
+    
+    
+    
     /**
-     * Get the value of esCompleta
+     * Get the value of resultadoEncontrado
      *
-     * @return the value of esCompleta
+     * @return the value of resultadoEncontrado
      */
-    public boolean isEsCompleta() {
-        return esCompleta;
+    public boolean isResultadoEncontrado() {
+        return resultadoEncontrado;
     }
 
     /**
-     * Set the value of esCompleta
+     * Set the value of resultadoEncontrado
      *
-     * @param esCompleta new value of esCompleta
+     * @param resultadoEncontrado new value of resultadoEncontrado
      */
-    public void setEsCompleta(boolean esCompleta) {
-        this.esCompleta = esCompleta;
+    public void setResultadoEncontrado(boolean resultadoEncontrado) {
+        this.resultadoEncontrado = resultadoEncontrado;
     }
 
     /**
@@ -91,6 +112,5 @@ public class IteracionExperimento1 {
     public void setTiempoBusqueda(long tiempoBusqueda) {
         this.tiempoBusqueda = tiempoBusqueda;
     }
-
-
+    
 }

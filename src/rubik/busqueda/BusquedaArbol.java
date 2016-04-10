@@ -41,12 +41,10 @@ public abstract class BusquedaArbol extends Busqueda {
       camino.insertElementAt(nodoPaso.getOperador(), 0); 
       nodoPaso = (NodoBusqueda)nodoPaso.getPadre(); 
     }
-
-    System.out.println("\n REPORTE DE BUSQUEDA");
-    System.out.println("---------------------------------------");
     //Imprimo Reporte de busqueda antes de retornar el camino para llegar a la solucion
 
     return camino;
   }
-
+      
+    public abstract Vector<Operador> buscarSolucion(Estado inicial);
 }

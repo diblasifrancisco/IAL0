@@ -29,6 +29,8 @@ public class BusquedaProfundidadIterativaG extends BusquedaGrafo {
             busquedapl.setProfundidadLimite(profundidadLimite);
             System.out.println("Iteracion actual: " + this.profundidadLimite);
             caminoSolucion = busquedapl.busquedaGrafoA(inicial);
+            
+            this.agregarRendimientoIteracion(busquedapl.rendimiento);
             if(!caminoSolucion.isEmpty()){
                 return caminoSolucion;
             }
@@ -49,10 +51,26 @@ public class BusquedaProfundidadIterativaG extends BusquedaGrafo {
             busquedapl.setProfundidadLimite(profundidadLimite);
             System.out.println("Iteracion actual: " + this.profundidadLimite);
             caminoSolucion = busquedapl.busquedaGrafoB(inicial);
+            
+            this.agregarRendimientoIteracion(busquedapl.rendimiento);
             if(!caminoSolucion.isEmpty()){
                 return caminoSolucion;
             }
             this.profundidadLimite++;
         }
+    }
+    
+    private void agregarRendimientoIteracion(RendimientoBusqueda rendimiento){
+        this.rendimiento.cantidadNodosExplorados += rendimiento.cantidadNodosExplorados;
+        this.rendimiento.cantidadNodosSobrantes += rendimiento.cantidadNodosSobrantes;
+        if(this.rendimiento.maxListaAbierta <= rendimiento.maxListaAbierta){
+            this.rendimiento.maxListaAbierta = rendimiento.maxListaAbierta;   
+        }        
+        this.rendimiento.resultadoEncontrado = rendimiento.resultadoEncontrado;
+        this.rendimiento.tiempoBusquedaMili += rendimiento.tiempoBusquedaMili;
+        this.rendimiento.tiempoBusquedaSeg += rendimiento.tiempoBusquedaSeg;
+        
+        
+        
     }
 }

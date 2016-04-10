@@ -21,77 +21,51 @@ import rubik.modelo.OperadorRubik;
  *
  * @author gasmu_000
  */
-public class Experimento1 {
+public class Experimento1 extends Experimento {
     public static void main(String[] args) {
-         
-        
-        // Describir para que son las lineas de codigo sigientes
         
         // se crea una semilla
         long semilla = 35675; 
         //coloca la seminlla en el cubo
-         
-        
+               
         int nroExperimento = 1;
         int totalExperimentos = 15;
+        int nroPasos = 2;
         
-        List<IteracionExperimento1> resultadosAbierta = new ArrayList<IteracionExperimento1>(totalExperimentos);
-        List<IteracionExperimento1> resultadosProfundidad = new ArrayList<IteracionExperimento1>(totalExperimentos);
-        List<IteracionExperimento1> resultadosCostoUniforme = new ArrayList<IteracionExperimento1>(totalExperimentos);
+        List<ResultadoExperimento> resultadosAnchura = new ArrayList<ResultadoExperimento>(totalExperimentos);
+        List<ResultadoExperimento> resultadosProfundidad = new ArrayList<ResultadoExperimento>(totalExperimentos);
+        List<ResultadoExperimento> resultadosCostoUniforme = new ArrayList<ResultadoExperimento>(totalExperimentos);
         
         while (nroExperimento <= totalExperimentos){
             //se muestra la semilla ingresada
+            semilla++;
             System.out.println("\nSEMILLA:"+semilla); 
             
-            Cubo cubo = new Cubo();
-            cubo.rnd.setSeed(semilla);
-            //mezclar el cubo con la cantidad de pasos indicados
-            Vector<Movimiento> movsMezcla = cubo.mezclar(2); 
-
-            //muestra los movimientos realizados en el cubo para mezclarlo
-            System.out.println("\nMOVIMIENTOS:"); 
-            for (Movimiento m : movsMezcla) {
-                System.out.print(m.toString() + " ");
-            }
-            //muestra el estado inicial
-            System.out.println();
-            System.out.println("CUBO INICIAL:\n" + cubo.toString()); 
-
-            // Describir para que son las lineas de codigo sigientes
-
-            //crea el problema a resolver con el cubo como quedo en el paso anterior y la estrategia de busqueda elegida
-            Problema problema = new Problema(new EstadoRubik(cubo), FactoriaEstrategias.getEstrategia(3));
+            //creo instancias de busqueda
+            Busqueda busquedaArbolAnchura = FactoriaEstrategias.getEstrategia(FactoriaEstrategias.ANCHURA_ARBOL);
+            Busqueda busquedaArbolProfundidad = FactoriaEstrategias.getEstrategia(FactoriaEstrategias.PROFUNDIDAD_ARBOL);
+            Busqueda busquedaArbolCostoUniforme = FactoriaEstrategias.getEstrategia(FactoriaEstrategias.COSTO_UNIFORME_ARBOL);
             
-            //obtiene la solucion, guarda las acciones que llevan a la solucion en un vector.
-            Vector<Operador> opsSolucion = problema.obtenerSolucion();  
+            //realizo busquedas
+            realizarBusqueda(semilla, busquedaArbolAnchura, nroPasos);
+            //realizarBusqueda(semilla, busquedaArbolProfundidad, nroPasos); // comentada ya que no va a finalizar
+            realizarBusqueda(semilla, busquedaArbolCostoUniforme, nroPasos);
             
-            //muestra la solucion
-            System.out.println("\nSOLUCION:");
-            //si la encontro
-            if (opsSolucion != null) {
-                for (Operador o : opsSolucion) {
-                    //muestra las acciones
-                    System.out.println("Accion: " + o.getEtiqueta() + " "); 
-                    OperadorRubik or = (OperadorRubik) o;
-                    //realiza la accion
-                    cubo.mover(or.getMovimiento());
-                }
-                System.out.println();
-                //muestra el cubo resuelto
-                System.out.println("CUBO FINAL:\n" + cubo.toString()); 
-            } else {
-                //sino indica que no hay solucion
-                System.out.println("no se ha encontrado solucion");
-            }
+            //creo los resultados de experimentos
+            resultadosAnchura.add(new ResultadoExperimento(busquedaArbolAnchura));
+            resultadosProfundidad.add(new ResultadoExperimento(busquedaArbolProfundidad));
+            resultadosCostoUniforme.add(new ResultadoExperimento(busquedaArbolCostoUniforme));
+            
+            System.out.println("Experimento " + nroExperimento + " completado.");
+            nroExperimento++;
         }
-    }
-    
-    private Busqueda realizarBusqueda(long semilla){
-        Cubo cubo = new Cubo();
-        cubo.rnd.setSeed(semilla);
-        //mezclar el cubo con la cantidad de pasos indicados
-        Vector<Movimiento> movsMezcla = cubo.mezclar(2);
-        
+        System.out.println("Todos los experimentos han finalizado.");
+        System.out.println("Los resultados de busqueda en anchura son:");
+        imprimirListaResultados(resultadosAnchura);
+        System.out.println("Los resultados de busqueda en profundidad son:");
+        imprimirListaResultados(resultadosProfundidad);
+        System.out.println("Los resultados de busqueda en costo uniforme son:");
+        imprimirListaResultados(resultadosCostoUniforme);
         
     }
 }

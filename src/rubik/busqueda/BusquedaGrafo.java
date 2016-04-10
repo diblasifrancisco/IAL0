@@ -17,6 +17,14 @@ public abstract class BusquedaGrafo  extends Busqueda{
         LinkedList<NodoBusqueda>      listaAbierta;
 	TrazaGenerica traza;
         char tipo = TipoBusquedaGrafo.CONTROL_LC;
+
+    public char getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(char tipo) {
+        this.tipo = tipo;
+    }
     /**
      Genera los nodos hijos dado un nodo 
      */
@@ -43,9 +51,6 @@ public abstract class BusquedaGrafo  extends Busqueda{
           camino.insertElementAt(nodoPaso.getOperador(), 0); 
           nodoPaso = (NodoBusqueda)nodoPaso.getPadre(); 
         }
-
-        System.out.println("\n REPORTE DE BUSQUEDA");
-        System.out.println("---------------------------------------");
         //Imprimo Reporte de busqueda antes de retornar el camino para llegar a la solucion
 
         return camino;
@@ -73,22 +78,28 @@ public abstract class BusquedaGrafo  extends Busqueda{
      */
     @Override
     public Vector<Operador> buscarSolucion(Estado inicial){
-        switch (tipo)
-        {
-           case TipoBusquedaGrafo.CONTROL_LC:
-               return this.busquedaGrafoA(inicial); 
-           case TipoBusquedaGrafo.CONTROL_LA_LC:
-               return this.busquedaGrafoB(inicial);  
-           default: return null;
+        try {
+            switch (tipo)
+            {
+               case TipoBusquedaGrafo.CONTROL_LC:
+                   return this.busquedaGrafoA(inicial); 
+               case TipoBusquedaGrafo.CONTROL_LA_LC:
+                   return this.busquedaGrafoB(inicial);  
+               default: return null;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new Vector<Operador>();
         }
+        
     }
     
     /**
      Busca la solución controlando estados repetidos en lista cerrada al quitar un nodo de lista abierta
      */
-    public abstract Vector<Operador> busquedaGrafoA(Estado inicial);
+    public abstract Vector<Operador> busquedaGrafoA(Estado inicial) throws Exception;
     /**
      Busca la solución controlando estados repetidos en lista cerrada y abierta al generar hijos
      */
-    public abstract Vector<Operador> busquedaGrafoB(Estado inicial);
+    public abstract Vector<Operador> busquedaGrafoB(Estado inicial) throws Exception;
 }
