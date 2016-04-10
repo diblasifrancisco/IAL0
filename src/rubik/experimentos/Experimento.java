@@ -5,9 +5,18 @@
  */
 package rubik.experimentos;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import rubik.busqueda.Busqueda;
 import rubik.busqueda.Operador;
 import rubik.busqueda.Problema;
@@ -19,8 +28,7 @@ import rubik.modelo.Movimiento;
  *
  * @author gasmu_000
  */
-public abstract class Experimento {
-    
+public abstract class Experimento{
     
     protected static void realizarBusqueda(long semilla, Busqueda busqueda, int nroPasos){
         
@@ -38,6 +46,8 @@ public abstract class Experimento {
         problema.getBuscador().getRendimiento().setResultadoEncontrado(resultadoEncontrado);
     }
     
+  
+    
     protected static void imprimirListaResultados (List lista){
         Iterator iterator = lista.iterator();
         
@@ -46,4 +56,5 @@ public abstract class Experimento {
             System.out.println(resultado.toString());
         }
     }
+    
 }
